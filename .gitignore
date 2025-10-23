@@ -1,0 +1,7 @@
+height_weight_images/
+*.jpg
+*.jpeg
+*.png
+venv/
+models/
+
