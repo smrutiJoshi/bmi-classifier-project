@@ -33,10 +33,16 @@ missing_files = []
 for fname, label_cat in zip(filenames, labels_categorical):
     img_path = os.path.join(IMG_DIR, fname)
     if os.path.exists(img_path):
-        img = load_img(img_path, target_size=IMG_SIZE)
-        img_arr = img_to_array(img) / 255.0
-        X.append(img_arr)
-        y.append(label_cat)
+        try:
+            with open(img_path, 'rb') as f:
+                f.read(10)  # Try to read a few bytes to check if file is readable
+            img = load_img(img_path, target_size=IMG_SIZE)
+            img_arr = img_to_array(img) / 255.0
+            X.append(img_arr)
+            y.append(label_cat)
+        except Exception as e:
+            print(f"Invalid or unreadable image file: {img_path} ({e})")
+            missing_files.append(img_path)
     else:
         missing_files.append(img_path)
 

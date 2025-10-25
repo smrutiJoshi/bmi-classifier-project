@@ -144,21 +144,6 @@ Obesity           67
 Underweight       30
 ```
 
-## 🛠️ Troubleshooting
-
-**Issue: "Input file not found"**
-- Make sure you've downloaded and extracted the Kaggle dataset
-- Verify the CSV filename matches the `INPUT_CSV` variable
-- Check that the CSV is in the same directory as the script
-
-**Issue: "Could not find height and weight columns"**
-- The script automatically detects columns with "height" and "weight" in their names
-- If detection fails, check your CSV column names and update the script accordingly
-
-**Issue: "No BMI values calculated"**
-- Check if the height/weight data format matches the expected format (e.g., "5'10\"" for height, "150 lbs" for weight)
-- The script includes parsing functions that can be adjusted for different formats
-
 ## 📈 Future Enhancements
 
 Potential improvements for this project:

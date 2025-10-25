@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMI Category Predictor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background: #f4f6f8;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            padding: 2.5rem 2rem 2rem 2rem;
+            max-width: 350px;
+            width: 100%;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 1.5rem;
+            color: #2d3748;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        input[type="file"] {
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            padding: 0.5rem;
+            background: #f9fafb;
+        }
+        input[type="submit"] {
+            background: #3182ce;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 0.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        input[type="submit"]:hover {
+            background: #2563eb;
+        }
+        .prediction {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: #e6fffa;
+            color: #234e52;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>BMI Category Predictor</h2>
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*" required>
+            <input type="submit" value="Predict">
+        </form>
+        {% if prediction %}
+            <div class="prediction">{{ prediction }}</div>
+        {% endif %}
+        {% if image_url %}
+            <div style="margin-top:1.5rem;">
+                <img src="{{ image_url }}" alt="Uploaded Image" style="max-width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
